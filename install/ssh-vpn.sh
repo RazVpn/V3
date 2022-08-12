@@ -291,8 +291,10 @@ wget -O panel-domain "https://raw.githubusercontent.com/${GitUser}/V3/main/menu/
 wget -O system "https://raw.githubusercontent.com/${GitUser}/V3/main/menu/system.sh"
 wget -O themes "https://raw.githubusercontent.com/${GitUser}/V3/main/menu/themes.sh"
 wget -O sys-info "https://raw.githubusercontent.com/${GitUser}/V3/main/system/sys-info.sh"
+wget -O run-update "https://raw.githubusercontent.com/${GitUser}/V3/main/update/run-update.sh"
 chmod +x add-host
 chmod +x sys-info
+chmod +x run-update 
 chmod +x menu
 chmod +x trial
 chmod +x member
