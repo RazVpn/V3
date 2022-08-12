@@ -75,7 +75,7 @@ c_trgo=$(grep -c -E "^### " "/etc/trojan-go/akun.conf")
 c_vms=$(grep -c -E "^#vms " "/usr/local/etc/xray/config.json")
 c_vls=$(grep -c -E "^#vls " "/usr/local/etc/xray/config.json")
 c_vxtls=$(grep -c -E "^#vxtls " "/usr/local/etc/xray/config.json")
-total_trojan=$(($c_xtrx + $c_trgo))
+total_trojan=$(($c_trx + $c_trgo))
 total_xray=$(($c_vms + $c_vls + $c_vxtls))
 
 # BANNER THEMES
@@ -116,11 +116,11 @@ echo -e "  \e[$text Domain Name          : $domain\e[0m"
 echo -e "  \e[$text Version Name         : Ichikaa (V1)"
 echo -e "  \e[$text Certificate Status   : Expired in $certifacate days"
 echo -e "  \e[$text Provided By          : $creditt"
-echo -e "   \e[$line════════════════════════════════════════════════════════════\e[m" 
-echo -e "\e[$back_text                        \e[30m[\e[$box TOTAL USER\e[30m ]\e[1m                       \e[m"
+echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m" 
+echo -e   " \e[$back_text                        \e[30m[\e[$box TOTAL USER\e[30m ]\e[1m                       \e[m"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
 echo -e "   \e[${text}          XRAY                       TROJAN\e[m" 
-echo -e "    \e[$text           $total_xray                $total_trojan\e[m"
+echo -e "    \e[$text           $total_xray                      $total_trojan\e[m"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
 echo -e   " \e[$back_text                        \e[30m[\e[$box MAIN MENU\e[30m ]\e[1m                       \e[m"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
