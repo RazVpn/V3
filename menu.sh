@@ -120,7 +120,7 @@ echo -e "   \e[$line════════════════════
 echo -e "\e[$back_text                        \e[30m[\e[$box TOTAL USER\e[30m ]\e[1m                       \e[m"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
 echo -e "   \e[${text}          XRAY                       TROJAN\e[m" 
-echo -e "    \e[${text}      $total_xray                $total_trojan\e[m"
+echo -e "    \e[$text           $total_xray                $total_trojan\e[m"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
 echo -e   " \e[$back_text                        \e[30m[\e[$box MAIN MENU\e[30m ]\e[1m                       \e[m"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
