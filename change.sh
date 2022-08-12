@@ -1,0 +1,79 @@
+#!/bin/bash
+#wget https://github.com/${GitUser}/
+GitUser="RazVpn"
+
+#IZIN SCRIPT
+MYIP=$(curl -sS ipv4.icanhazip.com)
+echo -e "\e[32mloading...\e[0m"
+clear
+
+# Valid Script
+VALIDITY () {
+    today=`date -d "0 days" +"%Y-%m-%d"`
+    Exp1=$(curl https://raw.githubusercontent.com/${GitUser}/ipv2/main/ip.conf | grep $MYIP | awk '{print $4}')
+    if [[ $today < $Exp1 ]]; then
+    echo -e "\e[32mYOUR SCRIPT ACTIVE..\e[0m"
+    else
+    echo -e "\e[31mYOUR SCRIPT HAS EXPIRED!\e[0m";
+    echo -e "\e[31mPlease renew your ipvps first\e[0m"
+    exit 0
+fi
+}
+IZIN=$(curl https://raw.githubusercontent.com/${GitUser}/ipv2/main/ip.conf | awk '{print $5}' | grep $MYIP)
+if [ $MYIP = $IZIN ]; then
+echo -e "\e[32mPermission Accepted...\e[0m"
+VALIDITY
+else
+echo -e "\e[31mPermission Denied!\e[0m";
+echo -e "\e[31mPlease buy script first\e[0m"
+exit 0
+fi
+echo -e "\e[32mloading...\e[0m"
+clear
+
+# BANNER THEMES
+# LINE COLOUR
+line=$(cat /etc/line)
+# TEXT COLOUR BELOW
+below=$(cat /etc/below)
+# BACKGROUND TEXT COLOUR
+back_text=$(cat /etc/back)
+# NUMBER COLOUR
+number=$(cat /etc/number)
+# TEXT ON BOX COLOUR
+box=$(cat /etc/box)
+clear
+yl='\e[031;1m'
+bl='\e[36;1m'
+gl='\e[32;1m'
+BLUE='\e[0;34m'
+clear
+echo -e ""
+echo -e "   \e[$line════════════════════════════════════════\e[m"
+echo -e "   \e[$back_text         \e[30m═[\e[$box CHANGE PORT MENU\e[30m ]═         \e[m"
+echo -e "   \e[$line════════════════════════════════════════\e[m"
+echo -e "\e[$number   >>\e[$number Please select an option below :\e[0m"
+echo -e "   \e[$number (•1)\e[m \e[$below Change Port Xray Core\e[m"
+echo -e "   \e[$number (•2)\e[m \e[$below Change Port Trojan Go\e[m"
+echo -e ""
+echo -e "   \e[$line═══════════════════════════════════════\e[m"
+echo -e "   \e[$back_text \e[$box x)  MENU                             \e[m"
+echo -e "   \e[$line═══════════════════════════════════════\e[m"
+echo -e ""
+read -p "     Select From Options [1-2 or x] :  " port
+echo -e ""
+case $port in
+1)
+port-xray
+;;
+2)
+port-trojan
+;;
+x)
+clear
+menu
+;;
+*)
+echo "Please enter an correct number"
+;;
+esac
