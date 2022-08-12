@@ -19,12 +19,12 @@ clear
 
 # Version sc
 VERSIONSC () {
-    VCODE=V1
-    IZINVERSION=$(curl https://raw.githubusercontent.com/${GitUser}/ipv2/main/ip.conf | grep $MYIP | awk '{print $6}')
+    VCODE=V3
+    IZINVERSION=$(curl https://raw.githubusercontent.com/${GitUser}/ipv3/main/ipvps.conf | grep $MYIP | awk '{print $6}')
     if [ $VCODE = $IZINVERSION ]; then
     echo -e "\e[32mReady for script installation version 1 (websocket)..\e[0m"
     else
-    echo -e "\e[31mYou do not have permission to install script version 1 (websocket)!\e[0m"
+    echo -e "\e[31mYou do not have permission to install script version 3 (websocket)!\e[0m"
     exit 0
 fi
 }
@@ -32,7 +32,7 @@ fi
 # Valid Script
 VALIDITY () {
     today=`date -d "0 days" +"%Y-%m-%d"`
-    Exp1=$(curl https://raw.githubusercontent.com/${GitUser}/ipv2/main/ip.conf | grep $MYIP | awk '{print $4}')
+    Exp1=$(curl https://raw.githubusercontent.com/${GitUser}/ipv3/main/ipvps.conf | grep $MYIP | awk '{print $4}')
     if [[ $today < $Exp1 ]]; then
     echo -e "\e[32mYOUR SCRIPT ACTIVE..\e[0m"
 	VERSIONSC
@@ -42,7 +42,7 @@ VALIDITY () {
     exit 0
 fi
 }
-IZIN=$(curl https://raw.githubusercontent.com/${GitUser}/ipv2/main/ip.conf | awk '{print $5}' | grep $MYIP)
+IZIN=$(curl https://raw.githubusercontent.com/${GitUser}/ipv3/main/ipvps.conf | awk '{print $5}' | grep $MYIP)
 if [ $MYIP = $IZIN ]; then
 echo -e "\e[32mPermission Accepted...\e[0m"
 VALIDITY
@@ -100,34 +100,34 @@ sleep 2
 #install ssh ovpn
 echo -e "\e[0;32mINSTALLING SSH & OVPN...\e[0m"
 sleep 1
-wget https://raw.githubusercontent.com/${GitUser}/v2/main/install/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
+wget https://raw.githubusercontent.com/${GitUser}/V3/main/install/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
 echo -e "\e[0;32mDONE INSTALLING SSH & OVPN\e[0m"
 clear
 
 #install Xray
 echo -e "\e[0;32mINSTALLING XRAY CORE...\e[0m"
 sleep 1
-wget https://raw.githubusercontent.com/${GitUser}/v2/main/install/ins-xray.sh && chmod +x ins-xray.sh && screen -S ins-xray ./ins-xray.sh
+wget https://raw.githubusercontent.com/${GitUser}/V3/main/install/ins-xray.sh && chmod +x ins-xray.sh && screen -S ins-xray ./ins-xray.sh
 echo -e "\e[0;32mDONE INSTALLING XRAY CORE\e[0m"
 clear
 
 #install Trojan GO
 echo -e "\e[0;32mINSTALLING TROJAN GO...\e[0m"
 sleep 1
-wget https://raw.githubusercontent.com/${GitUser}/v2/main/install/trojan-go.sh && chmod +x trojan-go.sh && screen -S trojan-go ./trojan-go.sh
+wget https://raw.githubusercontent.com/${GitUser}/V3/main/install/trojan-go.sh && chmod +x trojan-go.sh && screen -S trojan-go ./trojan-go.sh
 echo -e "\e[0;32mDONE INSTALLING TROJAN GO\e[0m"
 clear
 
 #install SET-BR
 echo -e "\e[0;32mINSTALLING SET-BR...\e[0m"
 sleep 1
-wget https://raw.githubusercontent.com/${GitUser}/v2/main/install/set-br.sh && chmod +x set-br.sh && ./set-br.sh
+wget https://raw.githubusercontent.com/${GitUser}/V3/main/install/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 echo -e "\e[0;32mDONE INSTALLING SET-BR...\e[0m"
 clear
 
 #install websocket
 echo -e "\e[0;32mINSTALLING WEBSOCKET PORT...\e[0m"
-wget https://raw.githubusercontent.com/${GitUser}/v2/main/websocket-python/websocket.sh && chmod +x websocket.sh && screen -S websocket.sh ./websocket.sh
+wget https://raw.githubusercontent.com/${GitUser}/V3/main/websocket-python/websocket.sh && chmod +x websocket.sh && screen -S websocket.sh ./websocket.sh
 echo -e "\e[0;32mDONE INSTALLING WEBSOCKET PORT\e[0m"
 clear
 
@@ -142,9 +142,9 @@ apt -y install nginx
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/${GitUser}/v2/main/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/${GitUser}/V3/main/nginx.conf"
 mkdir -p /home/vps/public_html
-wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/${GitUser}/v2/main/vps.conf"
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/${GitUser}/V3/main/vps.conf"
 /etc/init.d/nginx restart
 
 #finish
@@ -158,7 +158,7 @@ rm -f /root/ohp-ssh.sh
 rm -f /root/websocket.sh
 
 # Colour Default
-echo "1;32m" > /etc/banner
+echo "1;33m" > /etc/banner
 echo "30m" > /etc/box
 echo "1;33m" > /etc/line
 echo "1;34m" > /etc/text
@@ -168,7 +168,7 @@ echo "1;37m" > /etc/number
 echo 3d > /usr/bin/test
 
 # Version
-ver=$( curl https://raw.githubusercontent.com/${GitUser}/versionv2/main/ver.conf )
+ver=$( curl https://raw.githubusercontent.com/${GitUser}/version-m/main/ver2.conf )
 history -c
 echo "$ver" > /home/ver
 clear
