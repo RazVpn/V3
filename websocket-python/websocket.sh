@@ -14,12 +14,6 @@ namafolder="websocket-python"
 
 #System Websocket
 cd
-cd /etc/systemd/system/
-wget -O /etc/systemd/system/cdn-ssl.service https://raw.githubusercontent.com/${GitUser}/v2/main/${namafolder}/cdn-ssl.service
-
-#System Websocket-Ovpn Service
-cd /etc/systemd/system/
-wget -O /etc/systemd/system/cdn-ovpn.service https://raw.githubusercontent.com/${GitUser}/v2/main/${namafolder}/cdn-ovpn.service
 
 #System Websocket-Dropbear Service
 cd /etc/systemd/system/
@@ -28,10 +22,6 @@ wget -O /etc/systemd/system/cdn-dropbear.service https://raw.githubusercontent.c
 #Instal WS-SSL
 wget -q -O /usr/local/bin/cdn-ssl https://raw.githubusercontent.com/${GitUser}/v2/main/${namafolder}/cdn-ssl.py
 chmod +x /usr/local/bin/cdn-ssl
-
-#Install WS-OpenVPN
-wget -q -O /usr/local/bin/cdn-ovpn https://raw.githubusercontent.com/${GitUser}/v2/main/${namafolder}/cdn-ovpn.py
-chmod +x /usr/local/bin/cdn-ovpn
 
 #Install WS-Dropbear
 wget -q -O /usr/local/bin/cdn-dropbear https://raw.githubusercontent.com/${GitUser}/v2/main/${namafolder}/cdn-dropbear.py
