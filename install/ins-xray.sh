@@ -517,11 +517,11 @@ systemctl restart xray@none
 
 # download script
 cd /usr/bin
-wget -O port-xray "https://raw.githubusercontent.com/${GitUser}/v2/main/change-port/port-xray.sh"
-wget -O port-trojan "https://raw.githubusercontent.com/${GitUser}/v2/main/change-port/port-trojan.sh"
-wget -O certv2ray "https://raw.githubusercontent.com/${GitUser}/v2/main/cert.sh"
-wget -O trojaan "https://raw.githubusercontent.com/${GitUser}/v2/main/menu/trojaan.sh"
-wget -O xraay "https://raw.githubusercontent.com/${GitUser}/v2/main/menu/xraay.sh"
+wget -O port-xray "https://raw.githubusercontent.com/${GitUser}/V3/main/change-port/port-xray.sh"
+wget -O port-trojan "https://raw.githubusercontent.com/${GitUser}/V3/main/change-port/port-trojan.sh"
+wget -O certv2ray "https://raw.githubusercontent.com/${GitUser}/V3/main/cert.sh"
+wget -O trojaan "https://raw.githubusercontent.com/${GitUser}/V3/main/menu/trojaan.sh"
+wget -O xraay "https://raw.githubusercontent.com/${GitUser}/V3/main/menu/xraay.sh"
 chmod +x port-xray
 chmod +x port-trojan
 chmod +x certv2ray
