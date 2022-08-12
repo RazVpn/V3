@@ -258,7 +258,7 @@ netfilter-persistent save
 netfilter-persistent reload
 
 # download script
-cd /usr/binS
+cd /usr/bin
 wget -O update "https://raw.githubusercontent.com/${GitUser}/V3/main/update/update.sh"
 wget -O add-host "https://raw.githubusercontent.com/${GitUser}/V3/main/system/add-host.sh"
 wget -O about "https://raw.githubusercontent.com/${GitUser}/V3/main/system/about.sh"
