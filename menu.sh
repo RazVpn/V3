@@ -117,7 +117,7 @@ echo -e "  \e[$text Version Name         : Ichikaa (V1)"
 echo -e "  \e[$text Certificate Status   : Expired in $certifacate days"
 echo -e "  \e[$text Provided By          : $creditt"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m" 
-echo -e   " \e[$back_text                        \e[30m[\e[$box TOTAL USER\e[30m ]\e[1m                       \e[m"
+echo -e   " \e[$back_text                        \e[30m[\e[$box TOTAL USER\e[30m ]\e[1m                      \e[m"
 
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
 echo -e "   \e[${text}           XRAY                       TROJAN\e[m" 
