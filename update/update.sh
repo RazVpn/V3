@@ -9,7 +9,7 @@ MYIP=$(curl -sS ipv4.icanhazip.com)
 # Valid Script
 VALIDITY () {
     today=`date -d "0 days" +"%Y-%m-%d"`
-    Exp1=$(curl https://raw.githubusercontent.com/RazVpn/ipv2/main/ip.conf | grep $MYIP | awk '{print $4}')
+    Exp1=$(curl https://raw.githubusercontent.com/RazVpn/ipv3/main/ipvps.conf | grep $MYIP | awk '{print $4}')
     if [[ $today < $Exp1 ]]; then
     echo -e "\e[32mYOUR SCRIPT ACTIVE..\e[0m"
     else
@@ -18,7 +18,7 @@ VALIDITY () {
     exit 0
 fi
 }
-IZIN=$(curl https://raw.githubusercontent.com/RazVpn/ipv2/main/ip.conf | awk '{print $5}' | grep $MYIP)
+IZIN=$(curl https://raw.githubusercontent.com/RazVpn/ipv3/main/ipvps.conf | awk '{print $5}' | grep $MYIP)
 if [ $MYIP = $IZIN ]; then
 echo -e "\e[32mPermission Accepted...\e[0m"
 VALIDITY
@@ -33,7 +33,7 @@ GREEN='\e[0;32m'
 BLUE='\e[0;34m'
 NC='\e[0m'
 ver=$(cat /home/ver)
-ver=$( curl https://raw.githubusercontent.com/${GitUser}/versionv2/main/ver.conf )
+ver=$( curl https://raw.githubusercontent.com/${GitUser}/version-m/main/ver2.conf )
 clear
 
 # CEK UPDATE
@@ -42,7 +42,7 @@ Info1="${Green_font_prefix}[$ver]${Font_color_suffix}"
 Info2="${Green_font_prefix}[LATEST VERSION]${Font_color_suffix}"
 Error="Version ${Green_font_prefix}[$ver]${Font_color_suffix} available${Red_font_prefix}[Please Update]${Font_color_suffix}"
 ver=$(cat /home/ver)
-new_version=$( curl https://raw.githubusercontent.com/${GitUser}/versionv2/main/ver.conf | grep $ver )
+new_version=$( curl https://raw.githubusercontent.com/${GitUser}/version-m/main/ver2.conf | grep $ver )
 #Status Version
 if [ $ver = $new_version ]; then
 sts="${Info2}"
