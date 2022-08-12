@@ -17,14 +17,14 @@ cd
 
 #System Websocket-Dropbear Service
 cd /etc/systemd/system/
-wget -O /etc/systemd/system/cdn-dropbear.service https://raw.githubusercontent.com/${GitUser}/v2/main/${namafolder}/cdn-dropbear.service
+wget -O /etc/systemd/system/cdn-dropbear.service https://raw.githubusercontent.com/${GitUser}/V3/main/${namafolder}/cdn-dropbear.service
 
 #Instal WS-SSL
-wget -q -O /usr/local/bin/cdn-ssl https://raw.githubusercontent.com/${GitUser}/v2/main/${namafolder}/cdn-ssl.py
+wget -q -O /usr/local/bin/cdn-ssl https://raw.githubusercontent.com/${GitUser}/V3/main/${namafolder}/cdn-ssl.py
 chmod +x /usr/local/bin/cdn-ssl
 
 #Install WS-Dropbear
-wget -q -O /usr/local/bin/cdn-dropbear https://raw.githubusercontent.com/${GitUser}/v2/main/${namafolder}/cdn-dropbear.py
+wget -q -O /usr/local/bin/cdn-dropbear https://raw.githubusercontent.com/${GitUser}/V3/main/${namafolder}/cdn-dropbear.py
 chmod +x /usr/local/bin/cdn-dropbear
 
 #Enable & Start & Restart ws-stunnel service
