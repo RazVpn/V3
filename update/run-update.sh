@@ -11,7 +11,7 @@ if [ "$(systemd-detect-virt)" == "openvz" ]; then
 fi
 echo ""
 ver=$(cat /home/ver)
-ver=$( curl https://raw.githubusercontent.com/${GitUser}/versionv2/main/ver.conf )
+ver=$( curl https://raw.githubusercontent.com/${GitUser}/version-m/main/ver2.conf )
 clear
 # CEK UPDATE
 Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[41;37m" && Font_color_suffix="\033[0m"
@@ -19,7 +19,7 @@ Info1="${Green_font_prefix}[$ver]${Font_color_suffix}"
 Info2="${Green_font_prefix}[LATEST VERSION]${Font_color_suffix}"
 Error="Version ${Green_font_prefix}[$ver]${Font_color_suffix} available${Red_font_prefix}[Please Update]${Font_color_suffix}"
 ver=$(cat /home/ver)
-new_version=$( curl https://raw.githubusercontent.com/${GitUser}/versionv2/main/ver.conf | grep $version )
+new_version=$( curl https://raw.githubusercontent.com/${GitUser}/version-m/main/ver2.conf | grep $version )
 #Status Version
 if [ $ver = $new_version ]; then
 sts="${Info2}"
@@ -47,7 +47,7 @@ read -p "Please Choose 1 or x & y : " option2
 case $option2 in
 1)
 ver=$(cat /home/ver)
-new_version=$( curl https://raw.githubusercontent.com/${GitUser}/versionv2/main/ver.conf | grep $version )
+new_version=$( curl https://raw.githubusercontent.com/${GitUser}/version-m/main/ver2.conf | grep $version )
 if [ $ver = $new_version ]; then
 clear
 echo ""
@@ -75,7 +75,7 @@ sleep 1
 echo ""
 # UPDATE RUN-UPDATE
 cd /usr/bin
-wget -O run-update "https://raw.githubusercontent.com/${GitUser}/v2/main/update/run-update.sh"
+wget -O run-update "https://raw.githubusercontent.com/${GitUser}/V3/main/update/run-update.sh"
 chmod +x run-update
 # RUN UPDATE
 echo ""
@@ -87,11 +87,11 @@ echo ""
 echo -e "\e[0;32mNew Version Downloading started!\e[0m"
 sleep 2
 cd /usr/bin
-wget -O update "https://raw.githubusercontent.com/${GitUser}/v2/main/update/update.sh"
-wget -O message-ssh "https://raw.githubusercontent.com/${GitUser}/v2/main/update/message-ssh.sh"
-wget -O bannermenu "https://raw.githubusercontent.com/${GitUser}/v2/main/update/bannermenu.sh"
-wget -O change-port "https://raw.githubusercontent.com/${GitUser}/v2/main/change.sh"
-wget -O add-ws "https://raw.githubusercontent.com/${GitUser}/v2/main/add-user/add-ws.sh"
+wget -O update "https://raw.githubusercontent.com/${GitUser}/V3/main/update/update.sh"
+wget -O message-ssh "https://raw.githubusercontent.com/${GitUser}/V3/main/update/message-ssh.sh"
+wget -O bannermenu "https://raw.githubusercontent.com/${GitUser}/V3/main/update/bannermenu.sh"
+wget -O change-port "https://raw.githubusercontent.com/${GitUser}/V3/main/change.sh"
+wget -O add-ws "https://raw.githubusercontent.com/${GitUser}/V3/main/add-user/add-ws.sh"
 chmod +x update
 chmod +x bannermenu
 chmod +x change-port
@@ -101,7 +101,7 @@ clear
 echo -e ""
 echo -e "\e[0;32mDownloaded successfully!\e[0m"
 echo ""
-ver=$( curl https://raw.githubusercontent.com/${GitUser}/versionv2/main/ver.conf )
+ver=$( curl https://raw.githubusercontent.com/${GitUser}/version-m/main/ver2.conf )
 sleep 1
 echo -e "\e[0;32mPatching New Update, Please Wait...\e[0m"
 echo ""
