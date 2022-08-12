@@ -23,7 +23,7 @@ clear
 echo -e ""
 echo -e "              \e[0;32m[\e[1;36mSYSTEM STATUS INFORMATION\e[0;32m]\e[0m"
 echo -e "             \e[0;34m=============================\e[0m"
-fi
+
 echo -e ""
 echo -e "\e[1;33mSTATUS XRAY:\e[0m"
 echo -e "\e[0;34m-------------\e[0m"
