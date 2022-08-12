@@ -8,7 +8,7 @@ clear
 # Valid Script
 VALIDITY () {
     today=`date -d "0 days" +"%Y-%m-%d"`
-    Exp1=$(curl https://raw.githubusercontent.com/${GitUser}/ipv2/main/ip.conf | grep $MYIP | awk '{print $4}')
+    Exp1=$(curl https://raw.githubusercontent.com/${GitUser}/ipv3/main/ipvps.conf | grep $MYIP | awk '{print $4}')
     if [[ $today < $Exp1 ]]; then
     echo -e "\e[32mYOUR SCRIPT ACTIVE..\e[0m"
     else
@@ -17,7 +17,7 @@ VALIDITY () {
     exit 0
 fi
 }
-IZIN=$(curl https://raw.githubusercontent.com/${GitUser}/ipv2/main/ip.conf | awk '{print $5}' | grep $MYIP)
+IZIN=$(curl https://raw.githubusercontent.com/${GitUser}/ipv3/main/ipvps.conf | awk '{print $5}' | grep $MYIP)
 if [ $MYIP = $IZIN ]; then
 echo -e "\e[32mPermission Accepted...\e[0m"
 VALIDITY
@@ -34,12 +34,6 @@ BLUE='\e[0;34m'
 NC='\e[0m'
 default_email=$( curl https://raw.githubusercontent.com/${GitUser}/email/main/default.conf )
 emailcf=$(cat /usr/local/etc/xray/email)
-#Input Domain
-ovpn="$(netstat -nlpt | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
-ovpn2="$(netstat -nlpu | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
-ovpn4="$(cat ~/log-install.txt | grep -w "OpenVPN SSL" | cut -d: -f2|sed 's/ //g')"
-clear
-cek=$(netstat -nutlp | grep -w 80)
 if [[ -z $cek ]]; then
 echo ""
 echo -e "${BLUE}=====================================================${NC}"
@@ -74,22 +68,11 @@ echo ""
 echo -e "   .-----------------------------------."
 echo -e "   |   \e[1;32mPlease select acme for domain\e[0m   |"
 echo -e "   '-----------------------------------'"
-echo -e "     \e[1;32m1)\e[0m ZeroSSL.com"
-echo -e "     \e[1;32m2)\e[0m BuyPass.com"
-echo -e "     \e[1;32m3)\e[0m Letsencrypt.org"
+echo -e "     \e[1;32m1)\e[0m Letsencrypt.org"
 echo -e "   ------------------------------------"
-read -p "   Please select numbers 1-3(Any Button Default Letsencrypt.org) : " acmee
-acme1=zerossl
-acme2=https://api.buypass.com/acme/directory
+read -p "   Please select numbers 1(Any Button Default Letsencrypt.org) : " acmee
 acme3=letsencrypt
 if [[ $acmee == "1" ]]; then
-echo -e "ZeroSSL.com acme is used"
-acmeh=$acme1
-echo ""
-elif [[ $acmee == "2" ]]; then
-echo -e "BuyPass.com acme is used"
-acmeh=$acme2
-elif [[ $acmee == "3" ]]; then
 echo -e "Letsencrypt.org acme is used"
 acmeh=$acme3
 else
