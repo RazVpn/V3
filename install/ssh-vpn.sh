@@ -21,7 +21,7 @@ commonname="Ichikaa"
 email="amrlamn993@gmail.com"
 
 # simple password minimal
-wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/${GitUser}/v2/main/password"
+wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/${GitUser}/V3/main/password"
 chmod +x /etc/pam.d/common-password
 
 # go to root
@@ -136,7 +136,7 @@ echo "/usr/sbin/nologin" >> /etc/shells
 apt -y install squid3
 # install squid for debian 11
 apt -y install squid
-wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/${GitUser}/v2/main/squid3.conf"
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/${GitUser}/V3/main/squid3.conf"
 sed -i $MYIP2 /etc/squid/squid.conf
 
 # setting vnstat
@@ -197,7 +197,7 @@ systemctl start stunnel4
 
 
 # install lolcat
-wget https://raw.githubusercontent.com/${GitUser}/v2/main/lolcat.sh &&  chmod +x lolcat.sh && ./lolcat.sh
+wget https://raw.githubusercontent.com/${GitUser}/V3/main/lolcat.sh &&  chmod +x lolcat.sh && ./lolcat.sh
 
 # install fail2ban
 apt -y install fail2ban
@@ -230,15 +230,15 @@ echo 'Config file is at /usr/local/ddos/ddos.conf'
 echo 'Please send in your comments and/or suggestions to zaf@vsnl.com'
 
 # banner /etc/issue.net
-wget -O /etc/issue.net "https://raw.githubusercontent.com/${GitUser}/v2/main/banner/bannerssh.conf"
+wget -O /etc/issue.net "https://raw.githubusercontent.com/${GitUser}/V3/main/banner/bannerssh.conf"
 echo "Banner /etc/issue.net" >>/etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
 #Bannerku menu
-wget -O /usr/bin/bannerku https://raw.githubusercontent.com/${GitUser}/v2/main/banner/bannerku && chmod +x /usr/bin/bannerku
+wget -O /usr/bin/bannerku https://raw.githubusercontent.com/${GitUser}/V3/main/banner/bannerku && chmod +x /usr/bin/bannerku
 
 #install bbr
-wget https://raw.githubusercontent.com/${GitUser}/v2/main/system/bbr.sh && chmod +x bbr.sh && ./bbr.sh
+wget https://raw.githubusercontent.com/${GitUser}/V3/main/system/bbr.sh && chmod +x bbr.sh && ./bbr.sh
 
 # blockir torrent
 iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
@@ -258,39 +258,39 @@ netfilter-persistent save
 netfilter-persistent reload
 
 # download script
-cd /usr/bin
-wget -O update "https://raw.githubusercontent.com/${GitUser}/v2/main/update/update.sh"
-wget -O add-host "https://raw.githubusercontent.com/${GitUser}/v2/main/system/add-host.sh"
-wget -O about "https://raw.githubusercontent.com/${GitUser}/v2/main/system/about.sh"
-wget -O menu "https://raw.githubusercontent.com/${GitUser}/v2/main/menu.sh"
-wget -O trial "https://raw.githubusercontent.com/${GitUser}/v2/main/add-user/trial.sh"
-wget -O member "https://raw.githubusercontent.com/${GitUser}/v2/main/member.sh"
-wget -O delete "https://raw.githubusercontent.com/${GitUser}/v2/main/delete-user/delete.sh"
-wget -O restart "https://raw.githubusercontent.com/${GitUser}/v2/main/system/restart.sh"
-wget -O speedtest "https://raw.githubusercontent.com/${GitUser}/v2/main/system/speedtest_cli.py"
-wget -O info "https://raw.githubusercontent.com/${GitUser}/v2/main/system/info.sh"
-wget -O ram "https://raw.githubusercontent.com/${GitUser}/v2/main/system/ram.sh"
-wget -O autokill "https://raw.githubusercontent.com/${GitUser}/v2/main/autokill.sh"
-wget -O ceklim "https://raw.githubusercontent.com/${GitUser}/v2/main/cek-user/ceklim.sh"
-wget -O tendang "https://raw.githubusercontent.com/${GitUser}/v2/main/tendang.sh"
-wget -O clear-log "https://raw.githubusercontent.com/${GitUser}/v2/main/clear-log.sh"
-wget -O change-port "https://raw.githubusercontent.com/${GitUser}/v2/main/change.sh"
-wget -O wbmn "https://raw.githubusercontent.com/${GitUser}/v2/main/webmin.sh"
-wget -O xp "https://raw.githubusercontent.com/${GitUser}/v2/main/xp.sh"
-wget -O kernel-updt "https://raw.githubusercontent.com/${GitUser}/v2/main/kernel.sh"
-wget -O antitorrent "https://raw.githubusercontent.com/${GitUser}/v2/main/more-option/antitorrent.sh"
-wget -O cfa "https://raw.githubusercontent.com/${GitUser}/v2/main/cloud/cfa.sh"
-wget -O cfd "https://raw.githubusercontent.com/${GitUser}/v2/main/cloud/cfd.sh"
-wget -O cfp "https://raw.githubusercontent.com/${GitUser}/v2/main/cloud/cfp.sh"
-wget -O swap "https://raw.githubusercontent.com/${GitUser}/v2/main/swapkvm.sh"
-wget -O check-sc "https://raw.githubusercontent.com/${GitUser}/v2/main/system/running.sh"
-wget -O autoreboot "https://raw.githubusercontent.com/${GitUser}/v2/main/system/autoreboot.sh"
-wget -O bbr "https://raw.githubusercontent.com/${GitUser}/v2/main/system/bbr.sh"
-wget -O port-xray "https://raw.githubusercontent.com/${GitUser}/v2/main/change-port/port-xray.sh"
-wget -O panel-domain "https://raw.githubusercontent.com/${GitUser}/v2/main/menu/panel-domain.sh"
-wget -O system "https://raw.githubusercontent.com/${GitUser}/v2/main/menu/system.sh"
-wget -O themes "https://raw.githubusercontent.com/${GitUser}/v2/main/menu/themes.sh"
-wget -O sys-info "https://raw.githubusercontent.com/${GitUser}/v2/main/system/sys-info.sh"
+cd /usr/binS
+wget -O update "https://raw.githubusercontent.com/${GitUser}/V3/main/update/update.sh"
+wget -O add-host "https://raw.githubusercontent.com/${GitUser}/V3/main/system/add-host.sh"
+wget -O about "https://raw.githubusercontent.com/${GitUser}/V3/main/system/about.sh"
+wget -O menu "https://raw.githubusercontent.com/${GitUser}/V3/main/menu.sh"
+wget -O trial "https://raw.githubusercontent.com/${GitUser}/V3/main/add-user/trial.sh"
+wget -O member "https://raw.githubusercontent.com/${GitUser}/V3/main/member.sh"
+wget -O delete "https://raw.githubusercontent.com/${GitUser}/V3/main/delete-user/delete.sh"
+wget -O restart "https://raw.githubusercontent.com/${GitUser}/V3/main/system/restart.sh"
+wget -O speedtest "https://raw.githubusercontent.com/${GitUser}/V3/main/system/speedtest_cli.py"
+wget -O info "https://raw.githubusercontent.com/${GitUser}/V3/main/system/info.sh"
+wget -O ram "https://raw.githubusercontent.com/${GitUser}/V3/main/system/ram.sh"
+wget -O autokill "https://raw.githubusercontent.com/${GitUser}/V3/main/autokill.sh"
+wget -O ceklim "https://raw.githubusercontent.com/${GitUser}/V3/main/cek-user/ceklim.sh"
+wget -O tendang "https://raw.githubusercontent.com/${GitUser}/V3/main/tendang.sh"
+wget -O clear-log "https://raw.githubusercontent.com/${GitUser}/V3/main/clear-log.sh"
+wget -O change-port "https://raw.githubusercontent.com/${GitUser}/V3/main/change.sh"
+wget -O wbmn "https://raw.githubusercontent.com/${GitUser}/V3/main/webmin.sh"
+wget -O xp "https://raw.githubusercontent.com/${GitUser}/V3/main/xp.sh"
+wget -O kernel-updt "https://raw.githubusercontent.com/${GitUser}/V3/main/kernel.sh"
+wget -O antitorrent "https://raw.githubusercontent.com/${GitUser}/V3/main/more-option/antitorrent.sh"
+wget -O cfa "https://raw.githubusercontent.com/${GitUser}/V3/main/cloud/cfa.sh"
+wget -O cfd "https://raw.githubusercontent.com/${GitUser}/V3/main/cloud/cfd.sh"
+wget -O cfp "https://raw.githubusercontent.com/${GitUser}/V3/main/cloud/cfp.sh"
+wget -O swap "https://raw.githubusercontent.com/${GitUser}/V3/main/swapkvm.sh"
+wget -O check-sc "https://raw.githubusercontent.com/${GitUser}/V3/main/system/running.sh"
+wget -O autoreboot "https://raw.githubusercontent.com/${GitUser}/V3/main/system/autoreboot.sh"
+wget -O bbr "https://raw.githubusercontent.com/${GitUser}/V3/main/system/bbr.sh"
+wget -O port-xray "https://raw.githubusercontent.com/${GitUser}/V3/main/change-port/port-xray.sh"
+wget -O panel-domain "https://raw.githubusercontent.com/${GitUser}/V3/main/menu/panel-domain.sh"
+wget -O system "https://raw.githubusercontent.com/${GitUser}/V3/main/menu/system.sh"
+wget -O themes "https://raw.githubusercontent.com/${GitUser}/V3/main/menu/themes.sh"
+wget -O sys-info "https://raw.githubusercontent.com/${GitUser}/V3/main/system/sys-info.sh"
 chmod +x add-host
 chmod +x sys-info
 chmod +x menu
