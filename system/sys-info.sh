@@ -52,17 +52,17 @@ echo -e "$NC"
 
 # USERNAME
 rm -f /usr/bin/user
-username=$( curl https://raw.githubusercontent.com/${GitUser}/ipv2/main/ip.conf | grep $MYIP | awk '{print $2}' )
+username=$( curl https://raw.githubusercontent.com/${GitUser}/ipv3/main/ipvps.conf | grep $MYIP | awk '{print $2}' )
 echo "$username" > /usr/bin/user
 
 # Order ID
 rm -f /usr/bin/ver
-user=$( curl https://raw.githubusercontent.com/${GitUser}/ipv2/main/ip.conf | grep $MYIP | awk '{print $3}' )
+user=$( curl https://raw.githubusercontent.com/${GitUser}/ipv3/main/ipvps.conf | grep $MYIP | awk '{print $3}' )
 echo "$user" > /usr/bin/ver
 
 # validity
 rm -f /usr/bin/e
-valid=$( curl https://raw.githubusercontent.com/${GitUser}/ipv2/main/ip.conf | grep $MYIP | awk '{print $4}' )
+valid=$( curl https://raw.githubusercontent.com/${GitUser}/ipv3/main/ipvps.conf | grep $MYIP | awk '{print $4}' )
 echo "$valid" > /usr/bin/e
 
 # DETAIL ORDER
