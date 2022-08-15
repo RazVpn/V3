@@ -78,6 +78,11 @@ c_vxtls=$(grep -c -E "^#vxtls " "/usr/local/etc/xray/config.json")
 total_trojan=$(($c_trx + $c_trgo))
 total_xray=$(($c_vms + $c_vls + $c_vxtls))
 
+# Used Ram
+uram=$( free -m | awk 'NR==2 {print $3}' )
+# Free Ram
+fram=$( free -m | awk 'NR==2 {print $4}' )
+
 # BANNER THEMES
 # BANNER COLOUR
 banner_colour=$(cat /etc/banner)
@@ -103,22 +108,16 @@ echo -e "\e[$text Server-By-$creditt"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
 echo -e   " \e[$back_text                    \e[30m[\e[$box SERVER INFORMATION\e[30m ]\e[1m                  \e[m"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
-echo -e "  \e[$text Cpu Model            :$cname"
-echo -e "  \e[$text Number Of Core       : $cores"
-echo -e "  \e[$text Cpu Frequency        :$freq MHz"
-echo -e "  \e[$text Total Amount Of Ram  : $tram MB"
+echo -e "  \e[$text Ip Vps/Address       : $IPVPS"
+echo -e "  \e[$text Domain Name          : $domain\e[0m"
 echo -e "  \e[$text System Uptime        : $uptime"
 echo -e "  \e[$text Isp/Provider Name    : $ISP"
 echo -e "  \e[$text City Location        : $CITY"
 echo -e "  \e[$text Time Location        : $WKT"
-echo -e "  \e[$text Ip Vps/Address       : $IPVPS"
-echo -e "  \e[$text Domain Name          : $domain\e[0m"
 echo -e "  \e[$text Version Name         : Ichikaa (V1)"
 echo -e "  \e[$text Certificate Status   : Expired in $certifacate days"
-echo -e "  \e[$text Provided By          : $creditt"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m" 
 echo -e   " \e[$back_text                        \e[30m[\e[$box TOTAL USER\e[30m ]\e[1m                      \e[m"
-
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
 echo -e "   \e[${text}           XRAY                       TROJAN\e[m" 
 echo -e "    \e[$text           $total_xray                           $total_trojan\e[m"
