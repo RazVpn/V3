@@ -83,6 +83,19 @@ uram=$( free -m | awk 'NR==2 {print $3}' )
 # Free Ram
 fram=$( free -m | awk 'NR==2 {print $4}' )
 
+# CPU INFO
+cpu_usage1="$(ps aux | awk 'BEGIN {sum=0} {sum+=$3}; END {print sum}')"
+cpu_usage="$((${cpu_usage1/\.*} / ${corediilik:-1}))"
+cpu_usage+=" %"
+freq=$( awk -F: ' /cpu MHz/ {freq=$2} END {print freq}' /proc/cpuinfo )
+
+# Download
+download=`grep -e "lo:" -e "wlan0:" -e "eth0" /proc/net/dev  | awk '{print $2}' | paste -sd+ - | bc`
+downloadsize=$(($download/1073741824))
+# Upload
+upload=`grep -e "lo:" -e "wlan0:" -e "eth0" /proc/net/dev | awk '{print $10}' | paste -sd+ - | bc`
+uploadsize=$(($upload/1073741824))
+
 # BANNER THEMES
 # BANNER COLOUR
 banner_colour=$(cat /etc/banner)
@@ -113,26 +126,34 @@ echo -e "  \e[$text Domain Name          : $domain\e[0m"
 echo -e "  \e[$text System Uptime        : $uptime"
 echo -e "  \e[$text Isp/Provider Name    : $ISP"
 echo -e "  \e[$text City Location        : $CITY"
-echo -e "  \e[$text Time Location        : $WKT"
+echo -e "  \e[$text Download                    :  $downloadsize GB "
+echo -e "  \e[$text Cpu Usage                   :  $cpu_usage1 %"
+echo -e "  \e[$text Cpu Frequency               : $freq MHz"
+echo -e "  \e[$text Total Amount Of Ram         :  $tram MB"
+echo -e "  \e[$text Used RAM                    :  $uram MB"
+echo -e "  \e[$text Free RAM                    :  $fram MB"
+echo -e "  \e[$text Upload                      :  $uploadsize GB "
 echo -e "  \e[$text Version Name         : Ichikaa (V1)"
 echo -e "  \e[$text Certificate Status   : Expired in $certifacate days"
-echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m" 
-echo -e   " \e[$back_text                        \e[30m[\e[$box TOTAL USER\e[30m ]\e[1m                      \e[m"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
-echo -e "   \e[${text}           XRAY                       TROJAN\e[m" 
-echo -e "    \e[$text           $total_xray                           $total_trojan\e[m"
+echo -e   " \e[$back_text                        \e[30m[\e[$box CLIENT INFORMATION\e[30m ]\e[1m                \e[m"
+echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
+echo -e   "  \e[$text Order ID          : $oid"
+echo -e   "  \e[$text Client Name       : $username"
+echo -e   "  \e[$text Expired Status    : $exp $sts"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
 echo -e   " \e[$back_text                        \e[30m[\e[$box MAIN MENU\e[30m ]\e[1m                       \e[m"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
-echo -e   "  \e[$number [•1]\e[m \e[$below MENU XRAY VMESS & VLESS\e[m     \e[$number [•6]\e[m \e[$below CHECK RUNNING\e[m"
-echo -e   "  \e[$number [•2]\e[m \e[$below MENU TROJAN XRAY & GO\e[m       \e[$number [•7]\e[m \e[$below CLEAR LOG VPS\e[m"
-echo -e   "  \e[$number [•3]\e[m \e[$below MENU SYSTEM\e[m                 \e[$number [•8]\e[m \e[$below CHANGE PORT\e[m"
-echo -e   "  \e[$number [•4]\e[m \e[$below MENU UPDATE\e[m                 \e[$number [•9]\e[m \e[$below INFO ALL PORT\e[m" 
-echo -e   "  \e[$number [•5]\e[m \e[$below MENU THEMES\e[m                 \e[$number [10]\e[m \e[$below REBOOT VPS\e[m"
-echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
-echo -e   "  \e[$below Order ID          : $oid"
-echo -e   "  \e[$below Client Name       : $username"
-echo -e   "  \e[$below Expired Status    : $exp $sts"
+echo -e   "  \e[$number [•1]\e[m \e[$below MENU XRAY VMESS & VLESS\e[m"     
+echo -e   "  \e[$number [•2]\e[m \e[$below MENU TROJAN XRAY & GO\e[m"
+echo -e   "  \e[$number [•3]\e[m \e[$below MENU SYSTEM\e[m"
+echo -e   "  \e[$number [•4]\e[m \e[$below MENU UPDATE\e[m"
+echo -e   "  \e[$number [•5]\e[m \e[$below MENU THEMES\e[m"
+echo -e   "  \e[$number [•6]\e[m \e[$below CHECK RUNNING\e[m"
+echo -e   "  \e[$number [•7]\e[m \e[$below CLEAR LOG VPS\e[m"
+echo -e   "  \e[$number [•8]\e[m \e[$below CHANGE PORT\e[m"
+echo -e   "  \e[$number [•9]\e[m \e[$below INFO ALL PORT\e[m" 
+echo -e   "  \e[$number [10]\e[m \e[$below REBOOT VPS\e[m"
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
 echo -e   ""
 echo -e   "  \e[$below [Ctrl + C] For exit from main menu\e[m"
