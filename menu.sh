@@ -133,7 +133,7 @@ echo -e "  \e[$text Total Amount Of Ram         :  $tram MB"
 echo -e "  \e[$text Used RAM                    :  $uram MB"
 echo -e "  \e[$text Free RAM                    :  $fram MB"
 echo -e "  \e[$text Upload                      :  $uploadsize GB "
-echo -e "  \e[$text Version Name                : Ichikaa (V1)"
+echo -e "  \e[$text Upload                      :  $uploadsize GB "
 
 echo -e   " \e[$line════════════════════════════════════════════════════════════\e[m"
 echo -e   " \e[$back_text                      \e[30m[\e[$box CLIENT INFORMATION\e[30m ]\e[1m                \e[m"
